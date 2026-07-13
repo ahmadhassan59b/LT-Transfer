@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
+  <title id="title">Resort account records</title>
+  <desc id="desc">A stylized resort record dashboard showing ownership, usage, and financial details.</desc>
+  <rect width="760" height="520" fill="#f7f4ed"/>
+  <rect x="72" y="78" width="616" height="364" rx="22" fill="#ffffff" stroke="#dfe5eb" stroke-width="4"/>
+  <rect x="72" y="78" width="616" height="72" rx="22" fill="#123456"/>
+  <rect x="112" y="106" width="176" height="16" rx="8" fill="#ffffff" opacity=".92"/>
+  <circle cx="630" cy="114" r="13" fill="#c99735"/>
+  <circle cx="592" cy="114" r="13" fill="#29735c"/>
+  <rect x="116" y="196" width="156" height="130" rx="14" fill="#eef5f7"/>
+  <path d="M154 274c26-52 55-52 82 0" fill="none" stroke="#1d6fa5" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="195" cy="244" r="24" fill="#1d6fa5"/>
+  <rect x="312" y="198" width="296" height="14" rx="7" fill="#123456"/>
+  <rect x="312" y="236" width="230" height="12" rx="6" fill="#dfe5eb"/>
+  <rect x="312" y="268" width="260" height="12" rx="6" fill="#dfe5eb"/>
+  <rect x="312" y="300" width="188" height="12" rx="6" fill="#dfe5eb"/>
+  <rect x="116" y="360" width="126" height="34" rx="17" fill="#29735c"/>
+  <rect x="270" y="360" width="126" height="34" rx="17" fill="#1d6fa5"/>
+  <rect x="424" y="360" width="126" height="34" rx="17" fill="#c99735"/>
+  <rect x="138" y="371" width="82" height="10" rx="5" fill="#ffffff" opacity=".88"/>
+  <rect x="292" y="371" width="82" height="10" rx="5" fill="#ffffff" opacity=".88"/>
+  <rect x="446" y="371" width="82" height="10" rx="5" fill="#ffffff" opacity=".88"/>
+</svg>

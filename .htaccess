@@ -1,0 +1,44 @@
+# ============================================================
+# LT TRANSFERS — WEBSITE
+# .htaccess
+# ============================================================
+
+# ── Custom error page ─────────────────────────────────────
+ErrorDocument 404 /404.php
+
+# ── Pretty URLs for resort / situation service pages ──────
+# e.g. /disney-vacation-club-transfers/ -> /service.php?slug=disney-vacation-club-transfers
+RewriteEngine On
+
+# ── Redirect legacy .php URLs to clean URLs ────────────────
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php[\s?] [NC]
+RewriteRule ^index\.php$ /? [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation)\.php[\s?] [NC]
+RewriteRule ^(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation)\.php$ /$1 [R=301,L]
+
+# ── Serve clean URLs from their underlying .php files ──────
+RewriteRule ^about/?$ about.php [L]
+RewriteRule ^services/?$ services.php [L]
+RewriteRule ^fees/?$ fees.php [L]
+RewriteRule ^faq/?$ faq.php [L]
+RewriteRule ^testimonials/?$ testimonials.php [L]
+RewriteRule ^contact/?$ contact.php [L]
+RewriteRule ^estoppel-explanation/?$ estoppel-explanation.php [L]
+RewriteRule ^booking/?$ booking.php [L]
+RewriteRule ^document-preparation/?$ document-preparation.php [L]
+RewriteRule ^document-prepration/?$ document-preparation.php [L]
+
+RewriteRule ^disney-vacation-club-transfers/?$ service.php?slug=disney-vacation-club-transfers [L,QSA]
+RewriteRule ^wyndham-transfers/?$ service.php?slug=wyndham-transfers [L,QSA]
+RewriteRule ^marriott-vacation-club-transfers/?$ service.php?slug=marriott-vacation-club-transfers [L,QSA]
+RewriteRule ^hilton-grand-vacations-transfers/?$ service.php?slug=hilton-grand-vacations-transfers [L,QSA]
+RewriteRule ^hyatt-residence-club-transfers/?$ service.php?slug=hyatt-residence-club-transfers [L,QSA]
+RewriteRule ^vistana-transfers/?$ service.php?slug=vistana-transfers [L,QSA]
+RewriteRule ^trust-transfers/?$ service.php?slug=trust-transfers [L,QSA]
+RewriteRule ^adding-children-to-timeshare-deeds/?$ service.php?slug=adding-children-to-timeshare-deeds [L,QSA]
+RewriteRule ^timeshare-inheritance-transfers/?$ service.php?slug=timeshare-inheritance-transfers [L,QSA]
+
+# ── Legacy-friendly aliases (matches original site slugs) ──
+RewriteRule ^timeshare-transfer-faq/?$ faq.php [L]
+RewriteRule ^about-us/?$ about.php [L]

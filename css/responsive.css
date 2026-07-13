@@ -1,0 +1,447 @@
+@media (max-width: 1120px) {
+  .hero,
+  .resource-masthead-inner,
+  .resource-layout,
+  .resource-lead-card,
+  .resource-visual-section,
+  .resource-bottom-line,
+  .resource-split-panel,
+  .about-hero,
+  .estoppel-hero,
+  .estoppel-intro,
+  .estoppel-visual-feature,
+  .estoppel-detail-grid,
+  .estoppel-issue-layout,
+  .estoppel-bottom-line,
+  .about-overview,
+  .about-review-feature,
+  .about-image-band,
+  .about-profile-grid,
+  .about-profile-story,
+  .about-story-panel,
+  .about-quote-band,
+  .intro-grid,
+  .split-section,
+  .review-section,
+  .seo-plan {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .trust-strip,
+  .resource-stat-row,
+  .resource-check-grid,
+  .resource-note-grid,
+  .resource-timeline,
+  .about-trust-strip,
+  .about-profile-strip,
+  .estoppel-summary-strip,
+  .benefit-grid,
+  .about-method-grid,
+  .steps,
+  .service-grid,
+  .content-columns,
+  .estoppel-chip-grid,
+  .estoppel-image-grid,
+  .estoppel-card-grid,
+  .estoppel-steps,
+  .estoppel-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .attorney-notice .attorney-notice-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-sidebar {
+    position: static;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1120px) {
+  .site-header {
+    gap: 16px;
+    padding-inline: clamp(16px, 2vw, 24px);
+  }
+
+  .brand-logo {
+    height: 44px;
+    max-width: 178px;
+  }
+
+  .site-nav {
+    gap: 12px;
+    font-size: 12.5px;
+  }
+
+  .nav-phone,
+  .nav-cta {
+    padding: 9px 11px;
+  }
+}
+
+@media (max-width: 991px) {
+  .site-nav {
+    position: fixed;
+    top: 78px;
+    right: 16px;
+    left: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    gap: 24px;
+  }
+
+  .hero-media img {
+    aspect-ratio: 2.2 / 1;
+    max-height: 220px;
+    border-width: 6px;
+  }
+
+  .rating-card {
+    right: 14px;
+    bottom: 14px;
+    width: min(250px, calc(100% - 28px));
+    padding: 12px 14px;
+    border-left-width: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    min-height: 70px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .brand-logo {
+    width: auto;
+    height: 42px;
+    max-width: 160px;
+  }
+
+  .site-nav {
+    top: 70px;
+  }
+
+  .section,
+  .section-band {
+    padding: 52px 18px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .hero-media img {
+    aspect-ratio: 2.35 / 1;
+    max-height: 170px;
+  }
+
+  .rating-card {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 10px 24px rgba(19, 35, 58, 0.12);
+  }
+
+  .rating-card span {
+    font-size: 12.5px;
+  }
+
+  .trust-strip,
+  .resource-stat-row,
+  .resource-check-grid,
+  .resource-note-grid,
+  .resource-timeline,
+  .about-trust-strip,
+  .estoppel-summary-strip,
+  .benefit-grid,
+  .steps,
+  .service-grid,
+  .content-columns,
+  .estoppel-chip-grid,
+  .estoppel-image-grid,
+  .estoppel-card-grid,
+  .estoppel-steps,
+  .estoppel-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip article,
+  .resource-stat-row article,
+  .about-trust-strip article,
+  .estoppel-summary-strip article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fee-row,
+  .site-footer {
+    flex-direction: column;
+  }
+
+  .fee-row strong {
+    text-align: left;
+  }
+
+  .rating-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .resource-masthead {
+    padding: 34px 18px;
+  }
+
+  .resource-masthead h1 {
+    font-size: 34px;
+  }
+
+  .resource-layout {
+    padding: 34px 18px;
+  }
+
+  .resource-lead-card,
+  .resource-visual-section,
+  .resource-section,
+  .resource-bottom-line {
+    padding: 20px;
+  }
+
+  .page-resource h2 {
+    font-size: 26px;
+  }
+
+  .page-resource h3 {
+    font-size: 18px;
+  }
+
+  .resource-masthead .lede {
+    font-size: 16px;
+  }
+
+  .resource-quick-card {
+    padding: 18px;
+  }
+
+  .resource-lead-card img,
+  .resource-visual-section img,
+  .resource-bottom-line-intro img,
+  .resource-split-panel img {
+    height: auto;
+    min-height: 0;
+    max-height: 230px;
+  }
+
+  .resource-bottom-line-copy {
+    padding-left: 0;
+    padding-top: 18px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .resource-bottom-line-points {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-risk-panel {
+    padding: 14px;
+  }
+
+  .resource-risk-list li {
+    min-height: auto;
+    padding: 11px 14px 11px 40px;
+  }
+
+  .resource-fee-grid article {
+    padding-top: 50px;
+  }
+
+  .resource-stat-row article {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .resource-check-grid article,
+  .resource-note-grid article,
+  .resource-timeline article {
+    padding: 18px;
+  }
+
+  .attorney-notice {
+    padding: 26px 18px;
+  }
+
+  .attorney-notice .attorney-notice-inner {
+    padding: 20px;
+  }
+
+  .attorney-notice-meta {
+    display: grid;
+  }
+
+  .about-hero {
+    padding: 44px 18px 54px;
+  }
+
+  .about-profile-masthead {
+    padding: 36px 18px 44px;
+  }
+
+  .about-hero h1 {
+    font-size: 40px;
+  }
+
+  .about-profile-masthead h1 {
+    font-size: 36px;
+  }
+
+  .about-hero-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .about-profile-card,
+  .about-story-panel,
+  .about-method-grid article,
+  .about-quote-band blockquote {
+    padding: 20px;
+  }
+
+  .about-story-panel img {
+    max-height: 190px;
+  }
+
+  .estoppel-hero {
+    padding: 44px 18px 54px;
+  }
+
+  .estoppel-hero h1 {
+    font-size: 40px;
+  }
+
+  .estoppel-hero-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .about-process-panel h3,
+  .about-info-grid h3 {
+    font-size: 22px;
+  }
+}
+
+/* ============================================================
+   EXTENDED RESPONSIVE RULES
+   Breakpoints for interior-page components added in style.css.
+============================================================ */
+
+@media (max-width: 980px) {
+  .value-grid,
+  .service-cards,
+  .about-stats,
+  .about-info-grid,
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-detail,
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-sidebar {
+    position: static;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .value-grid,
+  .service-cards,
+  .about-stats,
+  .about-info-grid,
+  .about-profile-strip,
+  .about-method-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .document-form-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .document-sidebar {
+    position: static;
+  }
+
+  .form-row-three,
+  .submission-detail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .page-hero {
+    padding-top: 44px;
+  }
+
+  .booking-steps {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row-three,
+  .submission-detail-grid,
+  .submission-card summary {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-resort { text-align: left; }
+  .admin-heading { align-items: stretch; flex-direction: column; }
+  .choice { width: 100%; }
+}
