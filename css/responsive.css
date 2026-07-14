@@ -367,6 +367,23 @@
 ============================================================ */
 
 @media (max-width: 980px) {
+  .contact-methods {
+    grid-template-columns: 1fr 1fr;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .contact-method-card:nth-child(2) { border-right: 0; }
+  .contact-method-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
+  .contact-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-proof-panel {
+    max-width: 760px;
+  }
+
   .value-grid,
   .service-cards,
   .about-stats,
@@ -390,6 +407,24 @@
 }
 
 @media (max-width: 640px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero-callout {
+    max-width: 440px;
+  }
+
+  .contact-next-step,
+  .contact-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-form-footer .button {
+    width: 100%;
+  }
+
   .value-grid,
   .service-cards,
   .about-stats,
@@ -435,6 +470,19 @@
 }
 
 @media (max-width: 560px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+    margin-top: -24px;
+  }
+
+  .contact-method-card,
+  .contact-method-card:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-method-card:last-child { border-bottom: 0; }
+
   .form-row-three,
   .submission-detail-grid,
   .submission-card summary {

@@ -51,7 +51,7 @@ function radio_options(string $name, array $options): void {
         <p class="eyebrow">Before you begin</p>
         <h2>What you will need</h2>
         <ul><li>Buyer and seller contact details</li><li>Your resort and ownership information</li><li>A copy of the recorded deed or certificate, if available</li></ul>
-        <p>Prefer paper? <a href="https://www.lttransfers.com/wp-content/uploads/2025/08/DEED-INFO-sheet.pdf" target="_blank" rel="noopener">Download the printable form</a> and mail it to <?= h(COMPANY_ADDRESS_LINE1) ?>, <?= h(COMPANY_ADDRESS_LINE2) ?>.</p>
+        <p>Prefer paper? <a href="<?= base_url('media/documents/DEED-INFO-sheet.pdf') ?>" target="_blank" rel="noopener">Download the printable form</a> and mail it to <?= h(COMPANY_ADDRESS_LINE1) ?>, <?= h(COMPANY_ADDRESS_LINE2) ?>.</p>
         <a class="admin-shortcut" href="<?= base_url('admin/document-submissions.php') ?>">Staff: view submissions</a>
       </aside>
 
