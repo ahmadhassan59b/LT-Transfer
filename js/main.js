@@ -109,4 +109,134 @@
       }
     });
   });
+
+  /* ── Testimonials slider ───────────────────────────────────
+     Progressive carousel for [data-testimonial-slider]: arrow
+     nav, dot pagination, autoplay (paused on hover/focus), and
+     touch swipe. Slide width/gap are measured from the DOM so
+     it stays correct across the 3/2/1-per-view breakpoints.
+  ─────────────────────────────────────────────────────────── */
+  document.querySelectorAll('[data-testimonial-slider]').forEach((slider) => {
+    const track = slider.querySelector('[data-slider-track]');
+    const slides = track ? Array.from(track.children) : [];
+    if (!track || slides.length < 2) return;
+
+    const prevBtn = slider.querySelector('[data-slider-prev]');
+    const nextBtn = slider.querySelector('[data-slider-next]');
+    const dotsWrap = slider.querySelector('[data-slider-dots]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const AUTOPLAY_MS = 6000;
+
+    let index = 0;
+    let dots = [];
+    let autoplayId = null;
+
+    const perView = () => {
+      const width = slider.clientWidth;
+      if (width < 640) return 1;
+      if (width < 980) return 2;
+      return 3;
+    };
+
+    const maxIndex = () => Math.max(0, slides.length - perView());
+
+    const stopAutoplay = () => {
+      if (autoplayId) {
+        window.clearInterval(autoplayId);
+        autoplayId = null;
+      }
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (reduceMotion) return;
+      autoplayId = window.setInterval(() => {
+        goTo(index >= maxIndex() ? 0 : index + 1);
+      }, AUTOPLAY_MS);
+    };
+
+    const buildDots = () => {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      dots = [];
+      for (let i = 0; i <= maxIndex(); i += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'slider-dot';
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.addEventListener('click', () => {
+          goTo(i);
+          startAutoplay();
+        });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      }
+    };
+
+    const render = () => {
+      index = Math.min(index, maxIndex());
+      const first = slides[0];
+      const second = slides[1];
+      const gap = second ? second.offsetLeft - (first.offsetLeft + first.offsetWidth) : 0;
+      const offset = index * (first.offsetWidth + gap);
+      track.style.transform = 'translateX(-' + offset + 'px)';
+
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+      if (prevBtn) prevBtn.disabled = index === 0;
+      if (nextBtn) nextBtn.disabled = index >= maxIndex();
+    };
+
+    const goTo = (target) => {
+      index = Math.max(0, Math.min(target, maxIndex()));
+      render();
+    };
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goTo(index >= maxIndex() ? 0 : index + 1);
+        startAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goTo(index <= 0 ? maxIndex() : index - 1);
+        startAutoplay();
+      });
+    }
+
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    slider.addEventListener('focusin', stopAutoplay);
+    slider.addEventListener('focusout', startAutoplay);
+
+    let touchStartX = null;
+    track.addEventListener('touchstart', (event) => {
+      touchStartX = event.touches[0].clientX;
+      stopAutoplay();
+    }, { passive: true });
+
+    track.addEventListener('touchend', (event) => {
+      if (touchStartX === null) return;
+      const delta = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 40) {
+        goTo(delta < 0 ? index + 1 : index - 1);
+      }
+      touchStartX = null;
+      startAutoplay();
+    });
+
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        buildDots();
+        render();
+      }, 150);
+    });
+
+    buildDots();
+    render();
+    startAutoplay();
+  });
 })();

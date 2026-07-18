@@ -23,7 +23,8 @@
   .intro-grid,
   .split-section,
   .review-section,
-  .seo-plan {
+  .seo-plan,
+  .testimonial-hero-grid {
     grid-template-columns: 1fr;
   }
 
@@ -48,7 +49,8 @@
   .estoppel-image-grid,
   .estoppel-card-grid,
   .estoppel-steps,
-  .estoppel-faq-grid {
+  .estoppel-faq-grid,
+  .testimonial-fact-strip {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -387,9 +389,12 @@
   .value-grid,
   .service-cards,
   .about-stats,
-  .about-info-grid,
-  .testimonial-grid {
+  .about-info-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-slide {
+    flex-basis: calc((100% - 18px) / 2);
   }
 
   .service-detail,
@@ -431,8 +436,18 @@
   .about-info-grid,
   .about-profile-strip,
   .about-method-grid,
-  .testimonial-grid {
+  .testimonial-fact-strip {
     grid-template-columns: 1fr;
+  }
+
+  .testimonial-slide {
+    flex-basis: 100%;
+  }
+
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
   }
 
   .form-row {
