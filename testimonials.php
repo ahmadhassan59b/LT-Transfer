@@ -50,7 +50,7 @@ $resortCoverage = [
 ];
 ?>
 
-<main>
+<main class="testimonials-main">
   <section class="page-hero testimonial-hero">
     <div class="testimonial-hero-grid">
       <div>
@@ -60,8 +60,9 @@ $resortCoverage = [
           <span>Testimonials</span>
         </div>
         <p class="eyebrow">What owners say</p>
-        <h1>Trusted by timeshare owners nationwide</h1>
-        <p class="lede"><?= h(SITE_NAME) ?> has earned repeat referrals and a 5-star reputation within timeshare owner communities like TUG by focusing on clear communication and resort-specific transfer knowledge.</p>
+        <h1>Real experiences. Smooth transfers. Confident owners.</h1>
+        <p class="lede">See why timeshare owners across the country trust <?= h(SITE_NAME) ?> for clear guidance, attentive communication, and resort-specific transfer expertise.</p>
+        <div class="testimonial-hero-actions"><a class="button primary" href="#owner-reviews">Read owner stories</a><a class="testimonial-text-link" href="<?= base_url('booking.php') ?>">Start your transfer <span aria-hidden="true">&rarr;</span></a></div>
       </div>
       <aside class="testimonial-hero-card" aria-label="Owner rating summary">
         <span>Owner rating</span>
@@ -91,12 +92,22 @@ $resortCoverage = [
   </section>
 
   <section class="section section-soft">
-    <div class="testimonial-intro">
-      <p class="eyebrow">Thank you for stopping by</p>
-      <h2>We appreciate you checking out our reviews</h2>
+    <div class="testimonial-intro testimonial-intro-v2">
+      <div class="testimonial-intro-heading">
+        <p class="eyebrow">Built on owner confidence</p>
+        <h2>Trusted service, shared by the people we&rsquo;ve helped</h2>
+        <p class="testimonial-intro-lede">Our reputation has grown one successful transfer and one owner recommendation at a time.</p>
+        <a class="testimonial-intro-link" href="<?= base_url('document-preparation.php') ?>">See how document preparation works <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <aside class="testimonial-intro-proof testimonial-intro-visual" aria-label="Timeshare owners reviewing their completed transfer documents">
+        <img src="<?= asset('media/images/testimonial-owners-transfer.png') ?>" alt="Timeshare owners reviewing transfer documents together" loading="lazy" width="1536" height="1024">
+        <div class="testimonial-image-caption"><strong>A clearer path to a completed transfer</strong><span>Guidance owners can feel confident about.</span></div>
+        <div class="testimonial-intro-proof-top"><div class="stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span>Owner recommended</span></div>
       <p>We appreciate owners letting us know how they liked our service, and we appreciate everyone looking to see what people think about our timeshare transfer services. <?= h(SITE_NAME) ?> has some of the highest-rated reviews for timeshare deed transfers in the business. We keep the process simple with our online <a href="<?= base_url('document-preparation.php') ?>">timeshare transfer document preparation</a>, and we maintain a 5-star rating on Google — many of the reviews below were shared with us even before Google Reviews became the standard way owners left feedback.</p>
-      <p>We're also happy to help owners learn how to transfer a timeshare deed from some of the most popular resorts we've served, including:</p>
+        <div class="testimonial-intro-points"><span>Clear guidance</span><span>Resort expertise</span><span>Personal support</span></div>
+      </aside>
     </div>
+    <div class="testimonial-resort-heading"><p class="eyebrow">Resorts we know</p><h3>Experience across leading vacation ownership brands</h3></div>
     <div class="content-columns">
       <?php foreach ($resortCoverage as $group): ?>
         <article>
@@ -109,11 +120,11 @@ $resortCoverage = [
     <p class="resort-coverage-footnote">As you can see, we don't just have great reviews — we have deep, resort-specific transfer experience. Don't see your resort listed? <a href="<?= base_url('contact.php') ?>">Contact us</a> with your timeshare details and we will confirm exactly what is needed.</p>
   </section>
 
-  <section class="section">
+  <section class="section testimonial-review-section" id="owner-reviews">
     <div class="section-heading compact">
       <p class="eyebrow">In their own words</p>
-      <h2>Owners share their transfer experience</h2>
-      <p>Read what timeshare owners have shared with us directly about their transfer experience.</p>
+      <h2>Service people remember and recommend</h2>
+      <p>Every transfer is different. The standard we bring to each one is the same: responsive support, straightforward instructions, and careful follow-through.</p>
     </div>
 
     <div class="testimonial-slider" data-testimonial-slider aria-roledescription="carousel" aria-label="Owner testimonials">

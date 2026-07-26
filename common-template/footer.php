@@ -50,6 +50,24 @@ $services = require SITE_ROOT . '/includes/services-data.php';
     </div>
   </div>
 
+  <nav class="footer-policy-links" aria-label="Legal and site information">
+    <a href="<?= base_url('terms-of-service') ?>">Terms of Service</a>
+    <a href="<?= base_url('terms-of-use') ?>">Terms of Use</a>
+    <a href="<?= base_url('copyright-notice') ?>">Copyright Notice</a>
+    <a href="<?= base_url('privacy-policy') ?>">Privacy Policy</a>
+    <a href="<?= base_url('accessibility') ?>">Accessibility</a>
+    <a href="<?= base_url('services') ?>">Sitemap</a>
+  </nav>
+
+  <nav class="footer-resource-links" aria-label="Timeshare transfer resources">
+    <a href="<?= base_url('services') ?>">Timeshare Transfer Services</a>
+    <a href="<?= base_url('testimonials') ?>">Legitimate Timeshare Transfers</a>
+    <a href="<?= base_url('how-it-works-timeshare-deed-transfer') ?>">How to Transfer My Timeshare</a>
+    <a href="<?= base_url('disney-vacation-club-transfers/') ?>">Transfer Disney Timeshares</a>
+    <a href="<?= base_url('how-to-sell-a-timeshare') ?>">How to Sell My Timeshare</a>
+    <a href="<?= base_url('how-to-sell-a-timeshare') ?>">How to Sell a Timeshare</a>
+  </nav>
+
   <div class="footer-bottom">
     <span>&copy; <?= h(date('Y')) ?> <?= h(SITE_NAME) ?>. All rights reserved.</span>
     <span class="footer-legal">Document preparation services only. LT Transfers is not a law firm and does not provide legal advice.</span>

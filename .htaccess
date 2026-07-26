@@ -14,8 +14,8 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php[\s?] [NC]
 RewriteRule ^index\.php$ /? [R=301,L]
 
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation)\.php[\s?] [NC]
-RewriteRule ^(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation)\.php$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation|terms-of-service|terms-of-use|copyright-notice|privacy-policy|accessibility)\.php[\s?] [NC]
+RewriteRule ^(about|services|fees|faq|testimonials|contact|estoppel-explanation|booking|document-preparation|terms-of-service|terms-of-use|copyright-notice|privacy-policy|accessibility)\.php$ /$1 [R=301,L]
 
 # ── Serve clean URLs from their underlying .php files ──────
 RewriteRule ^about/?$ about.php [L]
@@ -27,6 +27,13 @@ RewriteRule ^contact/?$ contact.php [L]
 RewriteRule ^estoppel-explanation/?$ estoppel-explanation.php [L]
 RewriteRule ^booking/?$ booking.php [L]
 RewriteRule ^document-preparation/?$ document-preparation.php [L]
+RewriteRule ^terms-of-service/?$ terms-of-service.php [L]
+RewriteRule ^how-it-works-timeshare-deed-transfer/?$ how-it-works-timeshare-deed-transfer.php [L]
+RewriteRule ^how-to-sell-a-timeshare/?$ how-to-sell-a-timeshare.php [L]
+RewriteRule ^terms-of-use/?$ terms-of-use.php [L]
+RewriteRule ^copyright-notice/?$ copyright-notice.php [L]
+RewriteRule ^privacy-policy/?$ privacy-policy.php [L]
+RewriteRule ^accessibility/?$ accessibility.php [L]
 RewriteRule ^document-prepration/?$ document-preparation.php [L]
 
 RewriteRule ^disney-vacation-club-transfers/?$ service.php?slug=disney-vacation-club-transfers [L,QSA]

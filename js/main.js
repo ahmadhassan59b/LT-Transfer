@@ -127,7 +127,23 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const AUTOPLAY_MS = 6000;
 
+    const cloneCount = Math.min(3, slides.length);
+    slides.slice(-cloneCount).forEach((slide) => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.removeAttribute('data-slider-slide');
+      track.insertBefore(clone, track.firstChild);
+    });
+    slides.slice(0, cloneCount).forEach((slide) => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.removeAttribute('data-slider-slide');
+      track.appendChild(clone);
+    });
+
     let index = 0;
+    let physicalIndex = cloneCount;
+    let isWrapping = false;
     let dots = [];
     let autoplayId = null;
 
@@ -137,8 +153,6 @@
       if (width < 980) return 2;
       return 3;
     };
-
-    const maxIndex = () => Math.max(0, slides.length - perView());
 
     const stopAutoplay = () => {
       if (autoplayId) {
@@ -151,7 +165,7 @@
       stopAutoplay();
       if (reduceMotion) return;
       autoplayId = window.setInterval(() => {
-        goTo(index >= maxIndex() ? 0 : index + 1);
+        goTo(index + 1);
       }, AUTOPLAY_MS);
     };
 
@@ -159,7 +173,7 @@
       if (!dotsWrap) return;
       dotsWrap.innerHTML = '';
       dots = [];
-      for (let i = 0; i <= maxIndex(); i += 1) {
+      for (let i = 0; i < slides.length; i += 1) {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'slider-dot';
@@ -174,33 +188,59 @@
     };
 
     const render = () => {
-      index = Math.min(index, maxIndex());
-      const first = slides[0];
-      const second = slides[1];
+      const trackSlides = Array.from(track.children);
+      const first = trackSlides[0];
+      const second = trackSlides[1];
       const gap = second ? second.offsetLeft - (first.offsetLeft + first.offsetWidth) : 0;
-      const offset = index * (first.offsetWidth + gap);
+      const offset = physicalIndex * (first.offsetWidth + gap);
       track.style.transform = 'translateX(-' + offset + 'px)';
 
       dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
-      if (prevBtn) prevBtn.disabled = index === 0;
-      if (nextBtn) nextBtn.disabled = index >= maxIndex();
+      trackSlides.forEach((slide) => slide.classList.remove('is-center'));
+      const centerOffset = Math.floor(perView() / 2);
+      const centerSlide = trackSlides[physicalIndex + centerOffset];
+      if (centerSlide) centerSlide.classList.add('is-center');
     };
 
-    const goTo = (target) => {
-      index = Math.max(0, Math.min(target, maxIndex()));
+    const goTo = (target, animate = true) => {
+      if (isWrapping) return;
+      track.style.transition = animate ? '' : 'none';
+
+      if (target >= slides.length) {
+        index = 0;
+        physicalIndex += 1;
+        isWrapping = true;
+      } else if (target < 0) {
+        index = slides.length - 1;
+        physicalIndex -= 1;
+        isWrapping = true;
+      } else {
+        index = target;
+        physicalIndex = cloneCount + index;
+      }
       render();
     };
 
+    track.addEventListener('transitionend', () => {
+      if (!isWrapping) return;
+      physicalIndex = cloneCount + index;
+      track.style.transition = 'none';
+      render();
+      track.offsetHeight;
+      track.style.transition = '';
+      isWrapping = false;
+    });
+
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        goTo(index >= maxIndex() ? 0 : index + 1);
+        goTo(index + 1);
         startAutoplay();
       });
     }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        goTo(index <= 0 ? maxIndex() : index - 1);
+        goTo(index - 1);
         startAutoplay();
       });
     }
@@ -230,13 +270,15 @@
     window.addEventListener('resize', () => {
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(() => {
-        buildDots();
+        physicalIndex = cloneCount + index;
         render();
       }, 150);
     });
 
     buildDots();
-    render();
+    goTo(0, false);
+    track.offsetHeight;
+    track.style.transition = '';
     startAutoplay();
   });
 })();
