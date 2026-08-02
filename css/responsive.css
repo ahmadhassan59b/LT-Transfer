@@ -154,6 +154,15 @@
     padding: 12px 14px;
     border-left-width: 4px;
   }
+
+  .document-form-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .document-sidebar {
+    position: static;
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -563,11 +572,37 @@
 
   .document-sidebar {
     position: static;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .document-intake-header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .document-intake-contact {
+    min-width: 0;
+  }
+
+  .document-requirements {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .document-requirements a {
+    margin-left: 0;
   }
 
   .form-row-three,
+  .checkbox-grid,
   .submission-detail-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .payment-choice-grid > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .footer-grid {
@@ -602,6 +637,7 @@
   .contact-method-card:last-child { border-bottom: 0; }
 
   .form-row-three,
+  .checkbox-grid,
   .submission-detail-grid,
   .submission-card summary {
     grid-template-columns: 1fr;

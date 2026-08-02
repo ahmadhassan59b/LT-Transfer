@@ -47,17 +47,24 @@ if (is_spam_submission($_POST)) {
 }
 
 $required = [
-    'BuyerFirstName' => 'buyer first name', 'BuyerLastName' => 'buyer last name',
-    'BuyerPhone' => 'buyer phone number', 'BuyerEmail' => 'buyer email',
-    'SellerFirstName' => 'seller first name', 'SellerLastName' => 'seller last name',
-    'SellerPhone' => 'seller phone number', 'SellerEmail' => 'seller email',
+    'current_full_names' => 'current owner name(s)',
+    'current_phone' => 'current owner phone number',
+    'current_email' => 'current owner email',
+    'new_full_names' => 'new owner name(s)',
+    'new_phone' => 'new owner phone number',
+    'new_email' => 'new owner email',
+    'resort_name' => 'resort name',
 ];
 $errors = [];
 foreach ($required as $field => $label) {
     if (clean($_POST[$field] ?? '') === '') $errors[] = 'Please enter the ' . $label . '.';
 }
-if (!is_valid_email(clean($_POST['BuyerEmail'] ?? '', 180))) $errors[] = 'Please enter a valid buyer email.';
-if (!is_valid_email(clean($_POST['SellerEmail'] ?? '', 180))) $errors[] = 'Please enter a valid seller email.';
+if (!is_valid_email(clean($_POST['current_email'] ?? '', 180))) $errors[] = 'Please enter a valid current owner email.';
+if (!is_valid_email(clean($_POST['new_email'] ?? '', 180))) $errors[] = 'Please enter a valid new owner email.';
+if (clean($_POST['completed_by_email'] ?? '', 180) !== '' && !is_valid_email(clean($_POST['completed_by_email'] ?? '', 180))) $errors[] = 'Please enter a valid email for the person completing the form.';
+if (clean($_POST['resort_group'] ?? '') === 'Other' && clean($_POST['resort_group_other'] ?? '') === '') {
+    $errors[] = 'Please enter the custom resort or management group name.';
+}
 
 if ($errors) {
     http_response_code(422);
@@ -66,14 +73,22 @@ if ($errors) {
 }
 
 $allowedFields = [
-    'BuyerFirstName','BuyerLastName','BuyerPhone','BuyerEmail','BuyerStatus','BuyerSoleProp','BuyerCountry','BuyerState','BuyerCity','BuyerZip','BuyerAddress','BuyerTitle','BuyerSellerRelation','BuyerCurrentlyOwn',
-    'SellerFirstName','SellerLastName','DeceasedGrantor','SellerPhone','SellerEmail','SellerCountry','SellerState','SellerCity','SellerZip','SellerAddress','SellerTimeshareOwnerships','WhoWillSupplyDeed','TransferedInFamilyBefore',
-    'BrokerInvloved','BrokerName','BrokerEmail','PropertyIsGift','PurchasePrice','EscrowService','ResortName','ResortAddress','ResortZip','FixedOrFloating','ResortCountry','ResortState','ResortCity','ResortUnitNumber','ResortWeekNumber','ResortIDNumber','FeeRequired','FeeAmount','UsageYear','ResortSpecial','ResortIsPartOther','PaymentPerson','ResortTransferFeePayer'
+    'office_file_no','date_received','processor','transaction_other','purchase_price','is_gift','escrow_requested','owners_related','relationship',
+    'current_full_names','current_mailing_address','current_city_state_zip','current_phone','current_email','additional_current_owner','name_changed','current_name_after_change',
+    'new_full_names','new_mailing_address','new_city_state_zip','new_phone','new_email','additional_new_names','new_owner_status','spouse_full_name','title_method',
+    'special_other','deceased_owner_names','ever_in_trust','resort_name','resort_location','resort_group','resort_group_other','management_company','owner_member_contract_no','week_unit_no','week_type','ownership_type','new_owner_first_year_use','maintenance_fees_paid','ca_tax_bill_paid','ca_tax_bill_amount','transfer_fee_required','transfer_fee_amount','handled_by_broker','broker_name',
+    'documents_other','document_notes','lt_transfer_fees_payer','resort_fees_payer','deed_search_required','deed_search_fee_payer','completed_by_name','completed_by_relationship','completed_by_relationship_other','completed_by_phone','completed_by_email'
 ];
+$arrayFields = ['transaction_type','special_circumstances','documents_included'];
 
 $submission = ['id' => 'DOC-' . date('Ymd-His') . '-' . strtoupper(bin2hex(random_bytes(2)))];
 foreach ($allowedFields as $field) {
-    $submission[$field] = clean($_POST[$field] ?? '', $field === 'BuyerCurrentlyOwn' ? 1500 : 500);
+    $submission[$field] = clean($_POST[$field] ?? '', in_array($field, ['current_full_names','new_full_names','document_notes'], true) ? 1500 : 500);
+}
+foreach ($arrayFields as $field) {
+    $values = $_POST[$field] ?? [];
+    if (!is_array($values)) $values = [];
+    $submission[$field] = array_values(array_filter(array_map(static fn ($value): string => clean((string) $value, 150), $values)));
 }
 
 if (!empty($_FILES['DeedOrCertificateDoc']['name']) && ($_FILES['DeedOrCertificateDoc']['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
