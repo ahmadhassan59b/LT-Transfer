@@ -65,6 +65,9 @@ if (clean($_POST['completed_by_email'] ?? '', 180) !== '' && !is_valid_email(cle
 if (clean($_POST['resort_group'] ?? '') === 'Other' && clean($_POST['resort_group_other'] ?? '') === '') {
     $errors[] = 'Please enter the custom resort or management group name.';
 }
+if (clean($_POST['ownership_type'] ?? '') === 'Other' && clean($_POST['ownership_type_other'] ?? '') === '') {
+    $errors[] = 'Please enter the custom ownership type.';
+}
 
 if ($errors) {
     http_response_code(422);
@@ -76,7 +79,7 @@ $allowedFields = [
     'office_file_no','date_received','processor','transaction_other','purchase_price','is_gift','escrow_requested','owners_related','relationship',
     'current_full_names','current_mailing_address','current_city_state_zip','current_phone','current_email','additional_current_owner','name_changed','current_name_after_change',
     'new_full_names','new_mailing_address','new_city_state_zip','new_phone','new_email','additional_new_names','new_owner_status','spouse_full_name','title_method',
-    'special_other','deceased_owner_names','ever_in_trust','resort_name','resort_location','resort_group','resort_group_other','management_company','owner_member_contract_no','week_unit_no','week_type','ownership_type','new_owner_first_year_use','maintenance_fees_paid','ca_tax_bill_paid','ca_tax_bill_amount','transfer_fee_required','transfer_fee_amount','handled_by_broker','broker_name',
+    'special_other','deceased_owner_names','ever_in_trust','resort_name','resort_location','resort_group','resort_group_other','management_company','owner_member_contract_no','contract_number','week_unit_no','ownership_type','ownership_type_other','new_owner_first_year_use','maintenance_fees_paid','ca_tax_bill_paid','ca_tax_bill_amount','transfer_fee_required','transfer_fee_amount','handled_by_broker','broker_name',
     'documents_other','document_notes','lt_transfer_fees_payer','resort_fees_payer','deed_search_required','deed_search_fee_payer','completed_by_name','completed_by_relationship','completed_by_relationship_other','completed_by_phone','completed_by_email'
 ];
 $arrayFields = ['transaction_type','special_circumstances','documents_included'];

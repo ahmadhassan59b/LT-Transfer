@@ -91,29 +91,92 @@
   }
 }
 
-@media (min-width: 992px) and (max-width: 1120px) {
+@media (min-width: 994px) and (max-width: 1420px) {
   .site-header {
-    gap: 16px;
-    padding-inline: clamp(16px, 2vw, 24px);
+    gap: 14px;
+    padding-inline: clamp(16px, 2vw, 28px);
   }
 
   .brand-logo {
-    height: 44px;
-    max-width: 178px;
+    height: 42px;
+    max-width: 168px;
   }
 
   .site-nav {
-    gap: 12px;
-    font-size: 12.5px;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(8px, .8vw, 12px);
+    row-gap: 7px;
+    font-size: clamp(11px, .86vw, 12.25px);
+  }
+
+  .site-nav > a {
+    white-space: nowrap;
   }
 
   .nav-phone,
   .nav-cta {
-    padding: 9px 11px;
+    padding: 9px 10px;
   }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) and (max-width: 993.98px) {
+  .site-header {
+    min-height: 78px;
+    padding-inline: clamp(18px, 3vw, 34px);
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 78px;
+    right: 18px;
+    left: 18px;
+    display: none;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 4px;
+    align-items: stretch;
+    padding: 16px;
+    font-size: 14px;
+    background: rgba(255,255,255,.98);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 18px 46px rgba(19,35,58,.16);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav > a:not(.nav-phone):not(.nav-cta) {
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .site-nav > a:not(.nav-phone):not(.nav-cta):hover,
+  .site-nav > a.is-current {
+    background: var(--soft);
+  }
+
+  .nav-phone,
+  .nav-cta {
+    margin-top: 5px;
+    padding: 11px 14px;
+    text-align: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .submission-section-tabs button { flex-basis: calc(33.333% - 7px); }
+}
+
+@media (max-width: 991.98px) {
   .site-nav {
     position: fixed;
     top: 78px;
@@ -645,5 +708,9 @@
 
   .submission-resort { text-align: left; }
   .admin-heading { align-items: stretch; flex-direction: column; }
+  .submission-card-body { padding: 16px; }
+  .submission-toolbar { align-items: stretch; flex-direction: column; }
+  .submission-delete-button { width: 100%; }
+  .submission-section-tabs button { flex-basis: calc(50% - 7px); }
   .choice { width: 100%; }
 }

@@ -5,7 +5,7 @@ $pageTitle = 'Document Preparation | ' . SITE_NAME;
 $pageDescription = 'Submit the information LT Transfers needs to prepare your timeshare transfer documents.';
 $canonicalPath = '/document-preparation';
 $bodyClass = 'page-document-preparation';
-$resorts = ['Capital Vacations','Disney Vacation Club','Exploria Resorts','Hilton Grand Vacations (HGV)','Holiday Inn Club Vacations','Hyatt Vacation Club','Marriott Vacations Worldwide','Vacatia','Westgate Resorts','Wyndham / Travel + Leisure Co','Zelandia/LaTour Group','Other'];
+$resorts = ['Capital Vacations','Disney Vacation Club','Aulani (Disney Vacation Club)','DVC Hilton Head','Exploria Resorts','Hilton Grand Vacations (HGV)','Holiday Inn Club Vacations','Hyatt Vacation Club','Marriott Vacations Worldwide','Vacatia','Westgate Resorts','Wyndham / Travel + Leisure Co','Zelandia/LaTour Group','Other'];
 
 function form_choices(string $name, array $options, bool $multiple = false): void {
     echo '<div class="choice-grid' . ($multiple ? ' checkbox-grid' : '') . '">';
@@ -55,7 +55,7 @@ require SITE_ROOT . '/common-template/header.php';
         <fieldset class="form-section"><legend><span>01</span> Transaction overview</legend>
           <p class="document-section-lead">Select every option that describes this transfer.</p>
           <div class="form-group"><label>Transaction type</label><?php form_choices('transaction_type', ['Sale / Purchase','Gift','Family Transfer','Add Owner','Remove Owner','Transfer to / from Trust','Estate / Probate','Divorce','Corporation / LLC'], true); ?></div>
-          <div class="form-row"><div class="form-group"><label for="transaction_other">Other transaction type</label><input id="transaction_other" name="transaction_other"></div><div class="form-group"><label for="purchase_price">Purchase price</label><input id="purchase_price" name="purchase_price" inputmode="decimal" placeholder="$0.00"></div></div>
+          <div class="form-row"><div class="form-group"><label for="transaction_other">Other transaction type</label><input id="transaction_other" name="transaction_other"></div><div class="form-group"><label for="purchase_price">Purchase price</label><div class="currency-input"><span aria-hidden="true">$</span><input id="purchase_price" name="purchase_price" inputmode="decimal" placeholder="0.00" aria-label="Purchase price in dollars"></div></div></div>
           <div class="form-row"><div class="form-group"><label>Is this a gift?</label><?php form_choices('is_gift', ['Yes','No']); ?></div><div class="form-group"><label>Escrow requested?</label><?php form_choices('escrow_requested', ['Yes','No','Unsure']); ?></div></div>
           <div class="form-row"><div class="form-group"><label>Are the owners related?</label><?php form_choices('owners_related', ['Yes','No']); ?></div><div class="form-group"><label for="relationship">Relationship, if applicable</label><input id="relationship" name="relationship"></div></div>
         </fieldset>
@@ -85,13 +85,15 @@ require SITE_ROOT . '/common-template/header.php';
         </fieldset>
 
         <fieldset class="form-section"><legend><span>05</span> Resort and ownership</legend>
-          <div class="form-row"><div class="form-group"><label for="resort_name">Resort name *</label><input id="resort_name" name="resort_name" required></div><div class="form-group"><label for="resort_location">Resort city and state / country</label><input id="resort_location" name="resort_location"></div></div>
+          <div class="form-row"><div class="form-group"><label for="resort_name">Resort name *</label><input id="resort_name" name="resort_name" required></div><div class="form-group"><label for="resort_location">Resort city and state / country</label><input id="resort_location" name="resort_location"><span class="hint">Washington, D.C. is accepted. We do not prepare transfers for properties in Washington State.</span></div></div>
           <div class="form-row"><div class="form-group"><label for="resort_group">Resort / management group</label><select id="resort_group" name="resort_group"><option value="">Select a group</option><?php foreach ($resorts as $resort): ?><option value="<?= h($resort) ?>"><?= h($resort) ?></option><?php endforeach; ?></select></div><div class="form-group other-resort-field" data-other-resort hidden><label for="resort_group_other">Custom resort / management group *</label><input id="resort_group_other" name="resort_group_other" autocomplete="organization"></div></div>
-          <div class="form-row form-row-three"><div class="form-group"><label for="management_company">Management company</label><input id="management_company" name="management_company"></div><div class="form-group"><label for="owner_member_contract_no">Owner / member / contract #</label><input id="owner_member_contract_no" name="owner_member_contract_no"></div><div class="form-group"><label for="week_unit_no">Week / unit #</label><input id="week_unit_no" name="week_unit_no"></div></div>
-          <div class="form-row"><div class="form-group"><label>Fixed or Points?</label><?php form_choices('week_type', ['Fixed','Points']); ?></div><div class="form-group"><label>Ownership type</label><?php form_choices('ownership_type', ['Deeded','Certificate / membership','Club access']); ?></div></div>
+          <div class="form-row"><div class="form-group"><label for="management_company">Management company</label><input id="management_company" name="management_company"></div><div class="form-group"><label for="owner_member_contract_no">Resort ID / member #</label><input id="owner_member_contract_no" name="owner_member_contract_no"></div></div>
+          <div class="form-row"><div class="form-group"><label for="contract_number">Contract number</label><input id="contract_number" name="contract_number"></div><div class="form-group"><label for="week_unit_no">Week / unit #</label><input id="week_unit_no" name="week_unit_no"></div></div>
+          <div class="form-group"><label>Ownership type</label><?php form_choices('ownership_type', ['Deeded','Certificate / membership','Club access','Other']); ?></div>
+          <div class="form-group other-resort-field" data-other-ownership hidden><label for="ownership_type_other">Other ownership type *</label><input id="ownership_type_other" name="ownership_type_other" placeholder="Enter the ownership type"></div>
           <div class="form-row"><div class="form-group"><label for="new_owner_first_year_use">New owner’s first year of use</label><input id="new_owner_first_year_use" name="new_owner_first_year_use"></div><div class="form-group"><label>Maintenance fees paid current?</label><?php form_choices('maintenance_fees_paid', ['Yes','No','Unsure']); ?></div></div>
-          <div class="form-row"><div class="form-group"><label>California tax bill paid?</label><?php form_choices('ca_tax_bill_paid', ['Yes','No','Not applicable']); ?></div><div class="form-group"><label for="ca_tax_bill_amount">Tax bill amount</label><input id="ca_tax_bill_amount" name="ca_tax_bill_amount" inputmode="decimal"></div></div>
-          <div class="form-row"><div class="form-group"><label>Resort transfer fee required?</label><?php form_choices('transfer_fee_required', ['Yes','No','Unsure']); ?></div><div class="form-group"><label for="transfer_fee_amount">Transfer fee amount</label><input id="transfer_fee_amount" name="transfer_fee_amount" inputmode="decimal"></div></div>
+          <div class="form-row"><div class="form-group"><label>California tax bill paid?</label><?php form_choices('ca_tax_bill_paid', ['Yes','No','Not applicable']); ?></div><div class="form-group"><label for="ca_tax_bill_amount">Tax bill amount</label><div class="currency-input"><span aria-hidden="true">$</span><input id="ca_tax_bill_amount" name="ca_tax_bill_amount" inputmode="decimal" placeholder="0.00" aria-label="Tax bill amount in dollars"></div></div></div>
+          <div class="form-row"><div class="form-group"><label>Resort transfer fee required?</label><?php form_choices('transfer_fee_required', ['Yes','No','Unsure']); ?></div><div class="form-group"><label for="transfer_fee_amount">Transfer fee amount</label><div class="currency-input"><span aria-hidden="true">$</span><input id="transfer_fee_amount" name="transfer_fee_amount" inputmode="decimal" placeholder="0.00" aria-label="Transfer fee amount in dollars"></div></div></div>
           <div class="form-row"><div class="form-group"><label>Handled by a broker?</label><?php form_choices('handled_by_broker', ['Yes','No']); ?></div><div class="form-group"><label for="broker_name">Broker name</label><input id="broker_name" name="broker_name"></div></div>
         </fieldset>
 
@@ -133,6 +135,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   resort.addEventListener('change', updateOtherResort);
   updateOtherResort();
+
+  var ownershipOther = document.querySelector('[data-other-ownership]');
+  var ownershipOtherInput = document.getElementById('ownership_type_other');
+  var ownershipOptions = document.querySelectorAll('input[name="ownership_type"]');
+  function updateOtherOwnership() {
+    var selected = document.querySelector('input[name="ownership_type"]:checked');
+    var isOther = selected && selected.value === 'Other';
+    if (!ownershipOther || !ownershipOtherInput) return;
+    ownershipOther.hidden = !isOther;
+    ownershipOtherInput.required = isOther;
+    if (!isOther) ownershipOtherInput.value = '';
+  }
+  ownershipOptions.forEach(function (option) { option.addEventListener('change', updateOtherOwnership); });
+  updateOtherOwnership();
 });
 </script>
 <?php require SITE_ROOT . '/common-template/footer.php'; ?>

@@ -13,7 +13,7 @@ return [
     'General' => [
         [
             'q' => 'How long does a timeshare transfer take?',
-            'a' => 'This depends on the specifics of your timeshare and resort management. Normal turnaround times range from 8 to 20 weeks.',
+            'a' => 'Because every transfer is different, processing times can vary. Factors such as the resort or management company, county recording office, required documentation, and the type of ownership all affect the overall timeline. Once we understand your transfer needs, we will be happy to provide an estimated processing timeframe.',
         ],
         [
             'q' => 'What states can LT Transfers process?',
@@ -39,7 +39,7 @@ return [
         ],
         [
             'q' => 'How do I transfer an inherited timeshare?',
-            'a' => 'We review the estate documentation you have available and prepare the transfer document to reflect the new owner. Requirements vary depending on how the timeshare was held.',
+            'a' => 'Every inherited timeshare transfer begins with a review of the available estate documentation. After reviewing your situation, we will determine whether the transfer can be completed through our document preparation services or whether additional legal proceedings may be required. If we are unable to assist, we will explain why and discuss the available options.',
         ],
     ],
     'Fees & Process' => [

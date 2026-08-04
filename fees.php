@@ -52,7 +52,7 @@ require SITE_ROOT . '/common-template/header.php';
       <article><span>02</span><div><h3>Resort-specific paperwork</h3><p>Some resort systems require additional forms or notarization.</p></div></article>
       <article><span>03</span><div><h3>Ownership complexity</h3><p>Trusts, inheritances, and multiple owners may require extra documentation.</p></div></article>
     </div>
-    <aside class="fees-coverage-note"><strong>Please note</strong><p>We do not process timeshares located in New York, Connecticut, or Illinois.</p><a href="<?= base_url('contact.php') ?>">Ask about your location <span aria-hidden="true">&rarr;</span></a></aside>
+    <aside class="fees-coverage-note"><strong>Please note</strong><p>We do not process timeshares located in New York, Connecticut, Washington State and Illinois.</p><a href="<?= base_url('contact.php') ?>">Ask about your location <span aria-hidden="true">&rarr;</span></a></aside>
   </section>
 
   <section class="final-cta"><div><p class="eyebrow">Get an exact quote</p><h2>Send us your timeshare details for a precise, no-obligation quote.</h2></div><div class="cta-row"><a class="button primary light" href="<?= base_url('booking.php') ?>">Get Started Today</a><a class="button secondary light" href="tel:+<?= h(COMPANY_PHONE_TEL) ?>">Call <?= h(COMPANY_PHONE) ?></a></div></section>

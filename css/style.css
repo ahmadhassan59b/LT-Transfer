@@ -1273,6 +1273,9 @@ a.contact-method-card:hover { background: #f6fafb; }
 .document-intake .form-group > label { margin-bottom: 7px; color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: .01em; }
 .document-intake input:not([type="radio"]):not([type="checkbox"]), .document-intake select, .document-intake textarea { min-height: 44px; padding: 10px 12px; background: #fff; border-color: #c8d4de; border-radius: 5px; box-shadow: inset 0 1px 2px rgba(19,35,58,.025); }
 .document-intake input:not([type="radio"]):not([type="checkbox"]):focus, .document-intake select:focus, .document-intake textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(17,113,160,.12); outline: 0; }
+.currency-input { position: relative; }
+.currency-input > span { position: absolute; z-index: 1; top: 50%; left: 13px; color: #52677a; font-weight: 800; transform: translateY(-50%); pointer-events: none; }
+.document-intake .currency-input > input { padding-left: 28px !important; }
 .form-row-three { grid-template-columns: repeat(3, 1fr); }
 
 .choice-grid { display: flex; flex-wrap: wrap; gap: 10px 22px; }
@@ -1317,6 +1320,9 @@ a.contact-method-card:hover { background: #f6fafb; }
 .admin-tabs a.is-active { color: var(--navy); background: #fff; box-shadow: 0 3px 10px rgba(19,35,58,.08); }
 .admin-tabs a span { display: inline-grid; min-width: 24px; height: 24px; padding: 0 7px; place-items: center; color: #fff; background: var(--blue); border-radius: 999px; font-size: 12px; }
 .admin-storage-warning { margin: -10px 0 28px; padding: 14px 16px; color: #7a2d16; background: #fff0eb; border: 1px solid #ffc7b8; border-radius: 7px; font-size: 14px; line-height: 1.55; }
+.admin-action-notice { margin: -10px 0 24px; padding: 13px 16px; border: 1px solid; border-radius: 7px; font-size: 14px; font-weight: 700; }
+.admin-action-notice.success { color: #155c3f; background: #eaf8f1; border-color: #b9e6cf; }
+.admin-action-notice.error { color: #8b271d; background: #fff0ed; border-color: #f1c1ba; }
 .admin-tab-heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
 .admin-tab-heading h2 { margin: 0 0 4px; font-size: 23px; }
 .admin-tab-heading p { margin: 0; color: var(--muted); font-size: 14px; }
@@ -1324,14 +1330,33 @@ a.contact-method-card:hover { background: #f6fafb; }
 .submission-list { display: grid; gap: 14px; }
 .submission-card { background: #fff; border: 1px solid var(--line); border-radius: 9px; box-shadow: 0 5px 18px rgba(19,35,58,.05); overflow: hidden; }
 .submission-card summary { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; padding: 20px 24px; cursor: pointer; list-style: none; }
+.submission-card[open] summary { background: #fbfcfd; border-bottom: 1px solid var(--line); }
 .submission-card summary::-webkit-details-marker { display: none; }
 .submission-card summary span:first-child { display: grid; gap: 4px; }
 .submission-card summary small { color: var(--muted); font-size: 12px; }
 .submission-resort { color: var(--blue); text-align: right; font-weight: 700; }
-.submission-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.submission-card-body { padding: 24px; }
+.submission-toolbar { display: flex; gap: 20px; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.submission-toolbar > div { display: grid; gap: 3px; }
+.submission-toolbar > div > strong { color: var(--navy); font-size: 18px; }
+.submission-toolbar > div > span { color: var(--muted); font-size: 13px; }
+.submission-delete-form { flex: 0 0 auto; }
+.submission-delete-button { padding: 10px 14px; color: #a12820; cursor: pointer; background: #fff; border: 1px solid #e3aaa5; border-radius: 6px; font: inherit; font-size: 12px; font-weight: 800; }
+.submission-delete-button:hover { color: #fff; background: #a12820; border-color: #a12820; }
+.submission-section-tabs { display: flex; flex-wrap: wrap; gap: 7px; overflow: visible; padding: 6px; background: #e9eff3; border-radius: 9px; }
+.submission-section-tabs button { flex: 1 1 140px; min-width: 0; padding: 10px 13px; color: #52677a; cursor: pointer; background: transparent; border: 0; border-radius: 6px; font: inherit; font-size: 12px; font-weight: 800; line-height: 1.3; text-align: center; white-space: normal; }
+.submission-section-tabs button:hover { color: var(--navy); background: rgba(255,255,255,.65); }
+.submission-section-tabs button.is-active { color: #fff; background: var(--navy); box-shadow: 0 3px 9px rgba(19,35,58,.16); }
+.submission-section-panels { margin-top: 18px; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.submission-section-panels [role="tabpanel"][hidden] { display: none; }
+.submission-section-heading { display: flex; gap: 9px; align-items: center; padding: 14px 18px; color: #fff; background: linear-gradient(120deg, var(--navy), #194d67); }
+.submission-section-heading span { color: var(--gold); font-size: 12px; font-weight: 900; }
+.submission-section-heading h3 { margin: 0; color: #fff; font-size: 15px; }
+.submission-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--line); }
 .submission-detail-grid > div { display: grid; gap: 5px; min-width: 0; padding: 16px; background: #fff; }
 .submission-detail-grid span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
 .submission-detail-grid strong { overflow-wrap: anywhere; font-size: 14px; }
+.submission-section-empty { grid-column: 1 / -1; margin: 0; padding: 30px 18px; color: var(--muted); background: #fff; text-align: center; font-size: 14px; }
 
 /* ── Booking / process steps recap ───────────────────────── */
 .booking-steps {

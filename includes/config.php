@@ -89,4 +89,4 @@ define('SEND_CONFIRMATION_EMAIL', true);
 define('DEBUG_MODE', false);
 
 /* ── Asset cache-busting version ─────────────────────────── */
-define('ASSET_VERSION', '1.0.20');
+define('ASSET_VERSION', '1.0.27');
