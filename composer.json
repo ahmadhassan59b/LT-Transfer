@@ -1,0 +1,12 @@
+{
+    "name": "lttransfers/website",
+    "description": "LT Transfers website — optional PHPMailer dependency for SMTP email delivery.",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

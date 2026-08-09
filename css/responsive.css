@@ -1,0 +1,716 @@
+@media (max-width: 1120px) {
+  .sell-hero-grid { grid-template-columns: 1fr; }
+  .sell-hero-note { max-width: 620px; }
+  .sell-layout { grid-template-columns: 1fr; }
+  .sell-sidebar { position: static; }
+  .sell-sidebar nav { grid-template-columns: repeat(2,1fr); column-gap: 24px; }
+  .sell-conclusion-grid { grid-template-columns: 1fr; }
+  .process-hero-grid { grid-template-columns: 1fr; }
+  .process-hero-summary { max-width: 620px; }
+  .process-proof-grid { grid-template-columns: 1fr; }
+  .legal-hero-grid { grid-template-columns: 1fr; }
+  .legal-hero aside { max-width: 520px; }
+  .legal-layout { grid-template-columns: 1fr; }
+  .legal-sidebar { position: static; }
+  .legal-sidebar nav { grid-template-columns: repeat(2,1fr); column-gap: 24px; }
+  .services-hero-grid { grid-template-columns: 1fr; }
+  .services-process-card { max-width: 650px; }
+  .services-resort-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .fees-hero-grid { grid-template-columns: 1fr; }
+  .fees-hero-price { max-width: 620px; }
+  .faq-hero-grid { grid-template-columns: 1fr; }
+  .faq-hero-card { max-width: 620px; }
+  .faq-layout { grid-template-columns: 1fr; }
+  .faq-support-card { position: static; }
+  .hero,
+  .resource-masthead-inner,
+  .resource-layout,
+  .resource-lead-card,
+  .resource-visual-section,
+  .resource-bottom-line,
+  .resource-split-panel,
+  .about-hero,
+  .estoppel-hero,
+  .estoppel-intro,
+  .estoppel-visual-feature,
+  .estoppel-detail-grid,
+  .estoppel-issue-layout,
+  .estoppel-bottom-line,
+  .about-overview,
+  .about-review-feature,
+  .about-image-band,
+  .about-profile-grid,
+  .about-profile-story,
+  .about-story-panel,
+  .about-quote-band,
+  .intro-grid,
+  .split-section,
+  .review-section,
+  .seo-plan,
+  .testimonial-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .trust-strip,
+  .resource-stat-row,
+  .resource-check-grid,
+  .resource-note-grid,
+  .resource-timeline,
+  .about-trust-strip,
+  .about-profile-strip,
+  .estoppel-summary-strip,
+  .benefit-grid,
+  .about-method-grid,
+  .steps,
+  .service-grid,
+  .content-columns,
+  .estoppel-chip-grid,
+  .estoppel-image-grid,
+  .estoppel-card-grid,
+  .estoppel-steps,
+  .estoppel-faq-grid,
+  .testimonial-fact-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .attorney-notice .attorney-notice-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-sidebar {
+    position: static;
+  }
+}
+
+@media (min-width: 994px) and (max-width: 1420px) {
+  .site-header {
+    gap: 14px;
+    padding-inline: clamp(16px, 2vw, 28px);
+  }
+
+  .brand-logo {
+    height: 42px;
+    max-width: 168px;
+  }
+
+  .site-nav {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(8px, .8vw, 12px);
+    row-gap: 7px;
+    font-size: clamp(11px, .86vw, 12.25px);
+  }
+
+  .site-nav > a {
+    white-space: nowrap;
+  }
+
+  .nav-phone,
+  .nav-cta {
+    padding: 9px 10px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 993.98px) {
+  .site-header {
+    min-height: 78px;
+    padding-inline: clamp(18px, 3vw, 34px);
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 78px;
+    right: 18px;
+    left: 18px;
+    display: none;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 4px;
+    align-items: stretch;
+    padding: 16px;
+    font-size: 14px;
+    background: rgba(255,255,255,.98);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 18px 46px rgba(19,35,58,.16);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav > a:not(.nav-phone):not(.nav-cta) {
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .site-nav > a:not(.nav-phone):not(.nav-cta):hover,
+  .site-nav > a.is-current {
+    background: var(--soft);
+  }
+
+  .nav-phone,
+  .nav-cta {
+    margin-top: 5px;
+    padding: 11px 14px;
+    text-align: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .submission-section-tabs button { flex-basis: calc(33.333% - 7px); }
+}
+
+@media (max-width: 991.98px) {
+  .site-nav {
+    position: fixed;
+    top: 78px;
+    right: 16px;
+    left: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    gap: 24px;
+  }
+
+  .hero-media img {
+    aspect-ratio: 2.2 / 1;
+    max-height: 220px;
+    border-width: 6px;
+  }
+
+  .rating-card {
+    right: 14px;
+    bottom: 14px;
+    width: min(250px, calc(100% - 28px));
+    padding: 12px 14px;
+    border-left-width: 4px;
+  }
+
+  .document-form-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .document-sidebar {
+    position: static;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .legal-sidebar nav,.legal-contact-card { grid-template-columns: 1fr; }
+  .legal-content { padding: 26px 20px; }
+  .footer-policy-links,
+  .footer-resource-links {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-block: 16px;
+  }
+
+  .footer-policy-links a,
+  .footer-resource-links a {
+    width: 100%;
+    padding: 9px 0;
+    text-align: left;
+  }
+
+  .footer-policy-links a + a::before,
+  .footer-resource-links a + a::before {
+    display: none;
+  }
+  .faq-hero-actions { align-items: stretch; flex-direction: column; }
+  .faq-hero-actions .button { width: 100%; text-align: center; }
+  .faq-category-nav { align-items: stretch; flex-direction: column; }
+  .faq-category-nav > span { margin: 0 0 4px; }
+  .faq-category-nav a { justify-content: space-between; }
+  .faq-support-card { padding: 26px 22px; }
+  .faq-item summary { padding: 20px 18px; }
+  .faq-answer { padding: 0 18px 20px; }
+  .faq-answer p { padding-right: 0; }
+  .testimonial-hero-actions { align-items: stretch; flex-direction: column; }
+  .testimonial-hero-actions .button { width: 100%; text-align: center; }
+  .testimonials-main .testimonial-slider { padding: 14px; }
+  .testimonials-main .testimonial-slide { min-height: 300px; }
+  .site-header {
+    min-height: 70px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .brand-logo {
+    width: auto;
+    height: 42px;
+    max-width: 160px;
+  }
+
+  .site-nav {
+    top: 70px;
+  }
+
+  .section,
+  .section-band {
+    padding: 52px 18px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .hero-media img {
+    aspect-ratio: 2.35 / 1;
+    max-height: 170px;
+  }
+
+  .rating-card {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 10px 24px rgba(19, 35, 58, 0.12);
+  }
+
+  .rating-card span {
+    font-size: 12.5px;
+  }
+
+  .trust-strip,
+  .resource-stat-row,
+  .resource-check-grid,
+  .resource-note-grid,
+  .resource-timeline,
+  .about-trust-strip,
+  .estoppel-summary-strip,
+  .benefit-grid,
+  .steps,
+  .service-grid,
+  .content-columns,
+  .estoppel-chip-grid,
+  .estoppel-image-grid,
+  .estoppel-card-grid,
+  .estoppel-steps,
+  .estoppel-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip article,
+  .resource-stat-row article,
+  .about-trust-strip article,
+  .estoppel-summary-strip article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fee-row,
+  .site-footer {
+    flex-direction: column;
+  }
+
+  .fee-row strong {
+    text-align: left;
+  }
+
+  .rating-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .resource-masthead {
+    padding: 34px 18px;
+  }
+
+  .resource-masthead h1 {
+    font-size: 34px;
+  }
+
+  .resource-layout {
+    padding: 34px 18px;
+  }
+
+  .resource-lead-card,
+  .resource-visual-section,
+  .resource-section,
+  .resource-bottom-line {
+    padding: 20px;
+  }
+
+  .page-resource h2 {
+    font-size: 26px;
+  }
+
+  .page-resource h3 {
+    font-size: 18px;
+  }
+
+  .resource-masthead .lede {
+    font-size: 16px;
+  }
+
+  .resource-quick-card {
+    padding: 18px;
+  }
+
+  .resource-lead-card img,
+  .resource-visual-section img,
+  .resource-bottom-line-intro img,
+  .resource-split-panel img {
+    height: auto;
+    min-height: 0;
+    max-height: 230px;
+  }
+
+  .resource-bottom-line-copy {
+    padding-left: 0;
+    padding-top: 18px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .resource-bottom-line-points {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-risk-panel {
+    padding: 14px;
+  }
+
+  .resource-risk-list li {
+    min-height: auto;
+    padding: 11px 14px 11px 40px;
+  }
+
+  .resource-fee-grid article {
+    padding-top: 50px;
+  }
+
+  .resource-stat-row article {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .resource-check-grid article,
+  .resource-note-grid article,
+  .resource-timeline article {
+    padding: 18px;
+  }
+
+  .attorney-notice {
+    padding: 26px 18px;
+  }
+
+  .attorney-notice .attorney-notice-inner {
+    padding: 20px;
+  }
+
+  .attorney-notice-meta {
+    display: grid;
+  }
+
+  .about-hero {
+    padding: 44px 18px 54px;
+  }
+
+  .about-profile-masthead {
+    padding: 36px 18px 44px;
+  }
+
+  .about-hero h1 {
+    font-size: 40px;
+  }
+
+  .about-profile-masthead h1 {
+    font-size: 36px;
+  }
+
+  .about-hero-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .about-profile-card,
+  .about-story-panel,
+  .about-method-grid article,
+  .about-quote-band blockquote {
+    padding: 20px;
+  }
+
+  .about-story-panel img {
+    max-height: 190px;
+  }
+
+  .estoppel-hero {
+    padding: 44px 18px 54px;
+  }
+
+  .estoppel-hero h1 {
+    font-size: 40px;
+  }
+
+  .estoppel-hero-card {
+    position: static;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .about-process-panel h3,
+  .about-info-grid h3 {
+    font-size: 22px;
+  }
+}
+
+/* ============================================================
+   EXTENDED RESPONSIVE RULES
+   Breakpoints for interior-page components added in style.css.
+============================================================ */
+
+@media (max-width: 980px) {
+  .sell-intro-grid { grid-template-columns: 1fr; gap: 15px; }
+  .process-intro-grid { grid-template-columns: 1fr; gap: 15px; }
+  .services-section-intro { grid-template-columns: 1fr; gap: 15px; }
+  .services-guidance-panel { grid-template-columns: 1fr; }
+  .fees-factors-intro { grid-template-columns: 1fr; gap: 15px; }
+  .fees-factor-grid { grid-template-columns: 1fr; }
+  .fees-factor-grid article + article { padding-left: 0; border-left: 0; }
+  .testimonial-intro-v2 { grid-template-columns: 1fr; gap: 32px; }
+  .contact-methods {
+    grid-template-columns: 1fr 1fr;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .contact-method-card:nth-child(2) { border-right: 0; }
+  .contact-method-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
+  .contact-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-proof-panel {
+    max-width: 760px;
+  }
+
+  .value-grid,
+  .service-cards,
+  .about-stats,
+  .about-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-slide {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+
+  .service-detail,
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-sidebar {
+    position: static;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sell-hero-actions { align-items: stretch; flex-direction: column; }
+  .sell-hero-actions .button { width: 100%; text-align: center; }
+  .sell-guide-strip { grid-template-columns: 1fr; }
+  .sell-guide-strip article,.sell-guide-strip article + article { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .sell-guide-strip article:last-child { border-bottom: 0; }
+  .sell-sidebar nav,.sell-option-grid { grid-template-columns: 1fr; }
+  .sell-steps > article { grid-template-columns: 1fr; gap: 8px; padding: 25px 20px; }
+  .sell-warning { grid-template-columns: 1fr; gap: 6px; }
+  .process-hero-actions,.process-complete-actions { align-items: stretch; flex-direction: column; }
+  .process-hero-actions .button,.process-complete-actions .button { width: 100%; text-align: center; }
+  .process-fact-strip { grid-template-columns: 1fr; }
+  .process-fact-strip article,.process-fact-strip article + article { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .process-fact-strip article:last-child { border-bottom: 0; }
+  .process-timeline::before { left: 21px; }
+  .process-timeline > article { grid-template-columns: 44px minmax(0,1fr); gap: 12px; }
+  .process-step-marker { width: 44px; height: 44px; border-width: 4px; }
+  .process-step-card { padding: 24px 20px; }
+  .process-note { grid-template-columns: 1fr; gap: 6px; }
+  .services-hero-actions,.services-guidance-actions { align-items: stretch; flex-direction: column; }
+  .services-hero-actions .button,.services-guidance-actions .button { width: 100%; text-align: center; }
+  .services-trust-strip,.services-resort-grid { grid-template-columns: 1fr; }
+  .services-trust-strip article,.services-trust-strip article:first-child { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .services-trust-strip article:last-child { border-bottom: 0; }
+  .services-situation-grid > article { grid-template-columns: 38px 1fr; gap: 8px; }
+  .services-guidance-panel aside { padding: 30px 24px; }
+  .fees-hero-actions,.fees-coverage-note { align-items: stretch; flex-direction: column; }
+  .fees-hero-actions .button { width: 100%; text-align: center; }
+  .fees-trust-strip,.fees-card-grid { grid-template-columns: 1fr; }
+  .fees-trust-strip article,.fees-trust-strip article + article { padding: 20px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .fees-trust-strip article:last-child { border-bottom: 0; }
+  .fees-hero-price > div { white-space: normal; }
+  .fees-coverage-note a { white-space: normal; }
+  .testimonial-resort-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .testimonial-resort-heading h3 { text-align: left; }
+  .testimonial-intro-proof-top { align-items: flex-start; flex-direction: column; }
+  .testimonial-intro-visual, .testimonial-intro-visual > img { min-height: 390px; height: 390px; }
+  .testimonial-intro-visual > img { object-position: 56% center; }
+  .testimonial-intro-visual .testimonial-intro-proof-top { align-items: center; flex-direction: row; }
+  .testimonial-image-caption { right: 22px; bottom: 22px; left: 22px; }
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero-callout {
+    max-width: 440px;
+  }
+
+  .contact-next-step,
+  .contact-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-form-footer .button {
+    width: 100%;
+  }
+
+  .value-grid,
+  .service-cards,
+  .about-stats,
+  .about-info-grid,
+  .about-profile-strip,
+  .about-method-grid,
+  .testimonial-fact-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-slide {
+    flex-basis: 100%;
+  }
+
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .document-form-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .document-sidebar {
+    position: static;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .document-intake-header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .document-intake-contact {
+    min-width: 0;
+  }
+
+  .document-requirements {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .document-requirements a {
+    margin-left: 0;
+  }
+
+  .form-row-three,
+  .checkbox-grid,
+  .submission-detail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .payment-choice-grid > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .page-hero {
+    padding-top: 44px;
+  }
+
+  .booking-steps {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+    margin-top: -24px;
+  }
+
+  .contact-method-card,
+  .contact-method-card:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-method-card:last-child { border-bottom: 0; }
+
+  .form-row-three,
+  .checkbox-grid,
+  .submission-detail-grid,
+  .submission-card summary {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-resort { text-align: left; }
+  .admin-heading { align-items: stretch; flex-direction: column; }
+  .submission-card-body { padding: 16px; }
+  .submission-toolbar { align-items: stretch; flex-direction: column; }
+  .submission-delete-button { width: 100%; }
+  .submission-section-tabs button { flex-basis: calc(50% - 7px); }
+  .choice { width: 100%; }
+}
