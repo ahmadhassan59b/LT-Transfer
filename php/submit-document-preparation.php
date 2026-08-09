@@ -34,6 +34,7 @@ register_shutdown_function(static function (): void {
 });
 
 require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once SITE_ROOT . '/includes/mailer.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -129,6 +130,45 @@ if (!append_json_submission(DOCUMENT_SUBMISSIONS_FILE, $submission)) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'We could not save your submission. Please call us at ' . COMPANY_PHONE . '.']);
     exit;
+}
+
+if (SEND_NOTIFICATION_EMAIL) {
+    $notificationRows = [
+        'Reference' => $submission['id'],
+        'Current owner(s)' => $submission['current_full_names'],
+        'Current owner email' => $submission['current_email'],
+        'Current owner phone' => $submission['current_phone'],
+        'New owner(s)' => $submission['new_full_names'],
+        'New owner email' => $submission['new_email'],
+        'New owner phone' => $submission['new_phone'],
+        'Resort name' => $submission['resort_name'],
+        'Resort / management group' => $submission['resort_group'],
+        'Resort location' => $submission['resort_location'],
+        'Transaction type' => implode(', ', $submission['transaction_type']),
+        'Person completing the form' => $submission['completed_by_name'],
+        'Supporting document' => isset($submission['uploaded_document'])
+            ? $submission['uploaded_document']['original_name']
+            : 'None uploaded',
+    ];
+    $notificationBody = '<h2>New Document Preparation Submission</h2>';
+    foreach ($notificationRows as $label => $value) {
+        $displayValue = trim((string) $value) !== '' ? (string) $value : 'Not provided';
+        $notificationBody .= '<p><strong>' . h($label) . ':</strong> ' . h($displayValue) . '</p>';
+    }
+    $notificationBody .= '<p><a href="' . h(base_url('admin/document-submissions.php')) . '">View the complete submission in the admin area</a></p>';
+
+    $replyToEmail = $submission['completed_by_email'] ?: $submission['current_email'];
+    $replyToName = $submission['completed_by_name'] ?: $submission['current_full_names'];
+    if (!send_site_mail(
+        DOCUMENT_MAIL_NOTIFY,
+        'Ready Legal',
+        'New Document Preparation Submission - ' . $submission['id'],
+        $notificationBody,
+        $replyToEmail,
+        $replyToName
+    )) {
+        error_log('Document preparation notification email failed for ' . $submission['id']);
+    }
 }
 
 echo json_encode(['success' => true, 'message' => 'Thank you. Your document information was submitted successfully. Reference: ' . $submission['id']]);

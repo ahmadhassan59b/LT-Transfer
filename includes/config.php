@@ -71,6 +71,7 @@ define('MAIL_FROM_EMAIL', envValue('MAIL_FROM_EMAIL', COMPANY_EMAIL));
 define('MAIL_FROM_NAME',  envValue('MAIL_FROM_NAME', SITE_NAME));
 define('MAIL_NOTIFY',     envValue('MAIL_NOTIFY', COMPANY_EMAIL));
 define('MAIL_NOTIFY_NAME',envValue('MAIL_NOTIFY_NAME', 'LT Transfers Team'));
+define('DOCUMENT_MAIL_NOTIFY', envValue('DOCUMENT_MAIL_NOTIFY', 'ahmadcomsian@gmail.com'));
 
 /* ── File paths for JSON storage (form submissions) ─────────── */
 define('CONTACT_SUBMISSIONS_FILE', SITE_ROOT . '/data/contact-submissions.json');
