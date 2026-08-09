@@ -5,7 +5,7 @@ $pageTitle = 'Document Preparation | ' . SITE_NAME;
 $pageDescription = 'Submit the information LT Transfers needs to prepare your timeshare transfer documents.';
 $canonicalPath = '/document-preparation';
 $bodyClass = 'page-document-preparation';
-$resorts = ['Capital Vacations','Disney Vacation Club','Aulani (Disney Vacation Club)','DVC Hilton Head','Exploria Resorts','Hilton Grand Vacations (HGV)','Holiday Inn Club Vacations','Hyatt Vacation Club','Marriott Vacations Worldwide','Vacatia','Westgate Resorts','Wyndham / Travel + Leisure Co','Zelandia/LaTour Group','Other'];
+$resorts = ['Capital Vacations','Disney Vacation Club','Aulani (Disney Vacation Club)','DVC Hilton Head','Exploria Resorts','Hilton Grand Vacations (HGV)','Holiday Inn Club Vacations','Hyatt Vacation Club','Marriott Vacations Worldwide','Marriott’s Grand Chateau','Vacatia','Westgate Resorts','Wyndham / Travel + Leisure Co','Zelandia/LaTour Group','Other'];
 
 function form_choices(string $name, array $options, bool $multiple = false): void {
     echo '<div class="choice-grid' . ($multiple ? ' checkbox-grid' : '') . '">';
@@ -85,7 +85,7 @@ require SITE_ROOT . '/common-template/header.php';
         </fieldset>
 
         <fieldset class="form-section"><legend><span>05</span> Resort and ownership</legend>
-          <div class="form-row"><div class="form-group"><label for="resort_name">Resort name *</label><input id="resort_name" name="resort_name" required></div><div class="form-group"><label for="resort_location">Resort city and state / country</label><input id="resort_location" name="resort_location"><span class="hint">Washington, D.C. is accepted. We do not prepare transfers for properties in Washington State.</span></div></div>
+          <div class="form-row"><div class="form-group"><label for="resort_name">Resort name *</label><input id="resort_name" name="resort_name" required></div><div class="form-group"><label for="resort_location">Resort city and state / country</label><input id="resort_location" name="resort_location"><span class="hint">We do not prepare transfers for properties located in Washington State, New York, Connecticut, or Illinois.</span></div></div>
           <div class="form-row"><div class="form-group"><label for="resort_group">Resort / management group</label><select id="resort_group" name="resort_group"><option value="">Select a group</option><?php foreach ($resorts as $resort): ?><option value="<?= h($resort) ?>"><?= h($resort) ?></option><?php endforeach; ?></select></div><div class="form-group other-resort-field" data-other-resort hidden><label for="resort_group_other">Custom resort / management group *</label><input id="resort_group_other" name="resort_group_other" autocomplete="organization"></div></div>
           <div class="form-row"><div class="form-group"><label for="management_company">Management company</label><input id="management_company" name="management_company"></div><div class="form-group"><label for="owner_member_contract_no">Resort ID / member #</label><input id="owner_member_contract_no" name="owner_member_contract_no"></div></div>
           <div class="form-row"><div class="form-group"><label for="contract_number">Contract number</label><input id="contract_number" name="contract_number"></div><div class="form-group"><label for="week_unit_no">Week / unit #</label><input id="week_unit_no" name="week_unit_no"></div></div>

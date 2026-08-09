@@ -45,8 +45,10 @@ require SITE_ROOT . '/common-template/header.php';
       <div class="contact-hero-callout">
         <span class="contact-callout-label">Speak with our team</span>
         <a href="tel:+<?= h(COMPANY_PHONE_TEL) ?>"><?= h(COMPANY_PHONE) ?></a>
-        <p><?= h(COMPANY_HOURS) ?></p>
-        <span class="contact-response-badge">Responses usually within one business day</span>
+        <div class="contact-business-details">
+          <p><strong>Business Hours:</strong> Monday&ndash;Friday, 9:00 AM&ndash;5:00 PM (ET)</p>
+          <p><strong>Typical Response Time:</strong> Within One Business Day</p>
+        </div>
       </div>
     </div>
   </section>
@@ -74,7 +76,7 @@ require SITE_ROOT . '/common-template/header.php';
       <span class="contact-method-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
       </span>
-      <span><small>Mailing address</small><strong><?= h(COMPANY_ADDRESS_LINE1) ?><br><?= h(COMPANY_ADDRESS_LINE2) ?></strong></span>
+      <span><small>Mailing address</small><strong><span class="contact-address-line">140 Builders Pkwy, Suite A</span><span>Cornelia, GA 30531</span></strong></span>
     </div>
   </section>
 
